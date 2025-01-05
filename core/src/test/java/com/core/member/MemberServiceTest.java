@@ -1,14 +1,22 @@
 package com.core.member;
 
 
+import com.core.AppConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 class MemberServiceTest {
+    MemberService memberService;
+
+    @BeforeEach
+    public void beforeEach() {
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+    }
+
 
     @Test
     void join() {
-
-        MemberServiceImpl memberService = new MemberServiceImpl();
 
         //BDD (Behavior-Driven Development)
         //given(주어진 상태): 멤버 자료 입력
