@@ -1,10 +1,8 @@
 package com.core.order;
 
 import com.core.AppConfig;
-import com.core.member.Grade;
-import com.core.member.Member;
-import com.core.member.MemberService;
-import com.core.member.MemberServiceImpl;
+import com.core.discount.FixDiscountPolicy;
+import com.core.member.*;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -40,4 +38,16 @@ class OrderServiceTest {
 
 
     }
+/*
+    @Test
+    void fieldInjectionTest() {
+        OrderServiceImpl orderService1 = new OrderServiceImpl();
+
+        orderService1.setMemberRepository(new MemoryMemberRepository());
+        orderService1.setDiscountPolicy(new FixDiscountPolicy());
+        Member member = new Member(1L, "memberA", Grade.BASIC);
+        memberService.join(member);
+
+        orderService1.createOrder(1L, "itemA", 10000);
+    }*/
 }
