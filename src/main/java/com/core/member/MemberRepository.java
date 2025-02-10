@@ -1,7 +1,7 @@
 package com.core.member;
 
 public interface MemberRepository {
-    void save(Member mamber);
+    void save(Member member);
 
     Member findById(Long memberId);
 }

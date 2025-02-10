@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
 @Component("orderServiceImpl")
 public class OrderServiceImpl implements OrderService {
 
+    // 생성자 외에는 final을 사용불가
     private final MemberRepository memberRepository;
     private final DiscountPolicy discountPolicy;
 
 
-    /*@Autowired(required = false)
+/*    @Autowired(required = false)
     public void setMemberRepository(MemberRepository memberRepository) {
         System.out.println("setMemberRepository = " + memberRepository);
         this.memberRepository = memberRepository;

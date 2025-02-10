@@ -29,6 +29,8 @@ class OrderServiceTest {
         Long memberId = 1L;
         Member member = new Member(memberId, "memberA", Grade.VIP);
 
+        System.out.println("member = " + member.getName());
+
         //when(동작시): 멤버 저장 , 오더주문
         memberService.join(member);
         Order order = orderService.createOrder(memberId, "itemA", 10000);
@@ -38,6 +40,8 @@ class OrderServiceTest {
 
 
     }
+
+
 /*
     @Test
     void fieldInjectionTest() {
