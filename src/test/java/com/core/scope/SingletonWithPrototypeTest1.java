@@ -62,8 +62,8 @@ public class SingletonWithPrototypeTest1 {
         private final ObjectProvider<PrototypeBean> prototypeBeansProvider; //lombok
 //        private final Provider<PrototypeBean> prototypeBeansProvider; //lombok, javax inject ... 빈을 못가져옴
 
-        /*@Autowired
-        public ClientBeans(ObjectProvider<PrototypeBean> prototypeBeansProvider) {
+/*        @Autowired
+        public ClientBeans(Provider<PrototypeBean> prototypeBeansProvider) {
             this.prototypeBeansProvider = prototypeBeansProvider;
         }*/
 
