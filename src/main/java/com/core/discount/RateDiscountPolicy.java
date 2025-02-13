@@ -1,12 +1,14 @@
 package com.core.discount;
 
+import com.core.annotation.MainDiscountPolicy;
 import com.core.member.Grade;
 import com.core.member.Member;
-import org.springframework.context.annotation.Primary;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary //삭제시 AppConfig.class discountPolicy 와 빈의 충돌
+//@Qualifier("mainDiscountPolicy")
+@MainDiscountPolicy
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;
