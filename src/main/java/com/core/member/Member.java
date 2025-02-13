@@ -1,5 +1,6 @@
 package com.core.member;
 
+
 public class Member {
 
     private Long id;
