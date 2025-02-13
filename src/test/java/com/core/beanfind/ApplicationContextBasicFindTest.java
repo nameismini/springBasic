@@ -1,6 +1,9 @@
 package com.core.beanfind;
 
 import com.core.AppConfig;
+import com.core.discount.DiscountPolicy;
+import com.core.discount.FixDiscountPolicy;
+import com.core.discount.RateDiscountPolicy;
 import com.core.member.MemberService;
 import com.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;

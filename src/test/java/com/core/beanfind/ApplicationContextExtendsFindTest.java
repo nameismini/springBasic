@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.NoUniqueBeanDefinitionException;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -51,6 +52,34 @@ public class ApplicationContextExtendsFindTest {
     }
 
 
+    @Test
+    @DisplayName("특정 빈이 어디에 등록되어있는지 찾기위함")
+    void findBeanLocation() {
+        String beanName = "fixDiscountPolicy";
+
+        /*if (ac.containsBean(beanName)) {
+            BeanDefinition beanDefinition = ((AnnotationConfigApplicationContext) ac).getBeanDefinition(beanName);
+
+            System.out.println("🔍 Bean Name: " + beanName);
+            System.out.println("    - Bean Class: " + ac.getBean(beanName).getClass().getName());
+            System.out.println("    - Bean Definition Source: " + beanDefinition.getResourceDescription());
+            System.out.println("    - Bean Definition Role: " +
+                    (beanDefinition.getRole() == BeanDefinition.ROLE_APPLICATION ? "Application Bean" : "Spring Internal Bean"));
+        } else {
+            System.out.println("❌ '" + beanName + "' 빈을 찾을 수 없습니다.");
+        }*/
+
+
+        for (String beanNames : ac.getBeanDefinitionNames()) {
+            BeanDefinition beanDefinition = ac.getBeanDefinition(beanNames);
+            System.out.println("🔍 Bean Name: " + beanNames);
+            System.out.println("    - Bean Class: " + ac.getBean(beanNames).getClass().getName());
+            System.out.println("    - Bean Definition Source: " + beanDefinition.getResourceDescription());
+            System.out.println();
+        }
+    }
+
+
     @Configuration
     static class TestConfig {
         @Bean
@@ -61,6 +90,7 @@ public class ApplicationContextExtendsFindTest {
         @Bean
         DiscountPolicy fixDiscountPolicy() {
             return new FixDiscountPolicy();
+//            return null;
         }
     }
 

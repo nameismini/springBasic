@@ -2,6 +2,7 @@ package com.core;
 
 import com.core.discount.DiscountPolicy;
 import com.core.discount.FixDiscountPolicy;
+import com.core.discount.RateDiscountPolicy;
 import com.core.member.MemberService;
 import com.core.member.MemberServiceImpl;
 import com.core.member.MemoryMemberRepository;
@@ -31,15 +32,15 @@ public class AppConfig {
     @Bean
     public OrderService orderService() {
         System.out.println("call AppConfig.orderService");
-//        return new OrderServiceImpl(getMemberRepository(), discountPolicy());
-        return null;
+        return new OrderServiceImpl(getMemberRepository(), discountPolicy());
+//        return null;
     }
 
 
     @Bean
     public DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
-//        return new RateDiscountPolicy();
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 
 }
